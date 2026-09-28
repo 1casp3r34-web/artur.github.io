@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DragonSlayers - Professional eSports Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0e27;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+            border-bottom: 3px solid #ff0000;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .logo-dragon {
+            font-size: 32px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #1a0000 0%, #2d0000 50%, #0a0e27 100%);
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 3px solid #ff0000;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff0000;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #cc0000;
+            box-shadow: 0 0 20px #ff0000;
+            transform: translateY(-3px);
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin: 60px 0 40px 0;
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+            border-bottom: 3px solid #ff0000;
+            padding-bottom: 20px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: rgba(255, 0, 0, 0.05);
+            padding: 50px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border-left: 5px solid #ff0000;
+        }
+
+        .about h2 {
+            font-size: 30px;
+            color: #ff0000;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            font-size: 16px;
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        /* TEAM GRID */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .player-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #ff0000 0%, #990000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        .player-info {
+            padding: 20px;
+        }
+
+        .player-nick {
+            font-size: 24px;
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .player-role {
+            color: #ff9999;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .player-desc {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .player-stats {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ff0000;
+            font-size: 12px;
+            color: #ff9999;
+        }
+
+        /* TOURNAMENTS */
+        .tournaments {
+            background: rgba(255, 0, 0, 0.05);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .tournament-item {
+            background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+            border-left: 5px solid #ff0000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tournament-info h3 {
+            color: #ff0000;
+            margin-bottom: 5px;
+        }
+
+        .tournament-info p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .tournament-result {
+            background: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+            padding: 50px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border: 2px solid #ff0000;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #ff0000;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .contact-link {
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid #ff0000;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #ff0000;
+            transform: translateY(-5px);
+        }
+
+        .contact-link-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .contact-link-text {
+            font-weight: bold;
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            background: rgba(255, 0, 0, 0.05);
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+            border-top: 3px solid #ff0000;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: #ff0000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #cc0000;
+            transform: scale(1.2);
+            box-shadow: 0 0 15px #ff0000;
+        }
+
+        footer p {
+            color: #ccc;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .tournament-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .tournament-result {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-dragon">🐉</span> DragonSlayers
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#tournaments">Tournaments</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>DRAGONSLAYERS</h1>
+            <p>Professional CS:GO Team | From Local Heroes to Esports Legends</p>
+            <a href="#contact" class="btn">Join Our Community</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Us</h2>
+        <div class="about">
+            <h2>DragonSlayers - The Rising Dragons</h2>
+            <p>
+                Founded 1 year ago, DragonSlayers has quickly established itself as a formidable force in the CS:GO competitive scene. 
+                Our team is built on the foundation of skill, dedication, and teamwork. We've conquered local tournaments and now set our sights on the international stage with a dream of competing in ESL Pro League.
+            </p>
+            <p style="margin-top: 15px;">
+                Every member brings unique expertise and passion for the game. We don't just play CS:GO; we live and breathe competitive gaming. Our journey is just beginning, and we're determined to make DragonSlayers a household name in esports.
+            </p>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="container">
+        <h2 class="section-title">Our Team</h2>
+        <div class="team-grid">
+            <!-- CAPTAIN -->
+            <div class="player-card">
+                <div class="player-image">👨‍💼</div>
+                <div class="player-info">
+                    <div class="player-nick">SHADOW</div>
+                    <div class="player-role">In-Game Leader / Rifler</div>
+                    <div class="player-desc">
+                        Strategic mastermind and team captain. 2 years CS:GO experience. Known for incredible map control and decision-making under pressure.
+                    </div>
+                    <div class="player-stats">
+                        Avg K/D: 1.24 | Headshots: 48% | Tournaments: 15
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAGGER 1 -->
+            <div class="player-card">
+                <div class="player-image">⚡</div>
+                <div class="player-info">
+                    <div class="player-nick">BLAZE</div>
+                    <div class="player-role">Entry Fragger</div>
+                    <div class="player-desc">
+                        Pure firepower. Lightning-fast reflexes and aggressive playstyle. Main entry player who creates openings for the team.
+                    </div>
+                    <div class="player-stats">
+                        Avg K/D: 1.38 | First Kill Rate: 52% | Tournaments: 12
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAGGER 2 -->
+            <div class="player-card">
+                <div class="player-image">🎯</div>
+                <div class="player-info">
+                    <div class="player-nick">VENOM</div>
+                    <div class="player-role">Second Entry / Rifler</div>
+                    <div class="player-desc">
+                        Versatile player with solid mechanics. Great at adapting to different roles and supporting BLAZE in aggressive plays.
+                    </div>
+                    <div class="player-stats">
+                        Avg K/D: 1.15 | Utility Usage: 85% | Tournaments: 14
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUPPORT -->
+            <div class="player-card">
+                <div class="player-image">🛡️</div>
+                <div class="player-info">
+                    <div class="player-nick">FORGE</div>
+                    <div class="player-role">Support / Utility Player</div>
+                    <div class="player-desc">
+                        Team backbone. Expert utility usage and perfect callouts. His setups create space for fraggers to dominate.
+                    </div>
+                    <div class="player-stats">
+                        Avg K/D: 0.95 | Utility Success: 91% | Tournaments: 13
+                    </div>
+                </div>
+            </div>
+
+            <!-- SNIPER -->
+            <div class="player-card">
+                <div class="player-image">🔫</div>
+                <div class="player-info">
+                    <div class="player-nick">REAPER</div>
+                    <div class="player-role">AWPer / Sniper</div>
+                    <div class="player-desc">
+                        AWP specialist with insane positioning. His long-range dominance prevents enemy advances and opens rounds.
+                    </div>
+                    <div class="player-stats">
+                        AWP K/D: 1.54 | Headshots with AWP: 56% | Tournaments: 10
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOURNAMENTS -->
+    <section id="tournaments" class="container">
+        <h2 class="section-title">Recent Tournaments</h2>
+        <div class="tournaments">
+            <div class="tournament-item">
+                <div class="tournament-info">
+                    <h3>🏆 Budapest Regional Championship 2024</h3>
+                    <p>Largest regional tournament in Hungary | 16 teams competing</p>
+                </div>
+                <div class="tournament-result">🥇 1st Place</div>
+            </div>
+
+            <div class="tournament-item">
+                <div class="tournament-info">
+                    <h3>⚔️ Central Europe Open Qualifier</h3>
+                    <p>International qualifier for European championship</p>
+                </div>
+                <div class="tournament-result">🥈 2nd Place</div>
+            </div>
+
+            <div class="tournament-item">
+                <div class="tournament-info">
+                    <h3>🎮 Dragon's Cup - Team Exhibition</h3>
+                    <p>Internal team showcase and training tournament</p>
+                </div>
+                <div class="tournament-result">🏅 Hosted</div>
+            </div>
+
+            <div class="tournament-item">
+                <div class="tournament-info">
+                    <h3>💪 Budapest Winter League</h3>
+                    <p>Monthly competitive series with 12 teams</p>
+                </div>
+                <div class="tournament-result">🥇 1st Place</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <div class="contact">
+            <h2>Join Our Community</h2>
+            <p>Follow us on social media and stay updated with tournaments, gameplay, and behind-the-scenes content!</p>
+            
+            <div class="contact-links">
+                <a href="https://twitch.tv" target="_blank" class="contact-link">
+                    <div class="contact-link-icon">📺</div>
+                    <div class="contact-link-text">Twitch</div>
+                    <div style="font-size: 12px; margin-top: 5px;">twitch.tv/dragonslayers</div>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="contact-link">
+                    <div class="contact-link-icon">📸</div>
+                    <div class="contact-link-text">Instagram</div>
+                    <div style="font-size: 12px; margin-top: 5px;">@dragonslayers_gg</div>
+                </a>
+                <a href="mailto:team@dragonslayers.gg" class="contact-link">
+                    <div class="contact-link-icon">✉️</div>
+                    <div class="contact-link-text">Email</div>
+                    <div style="font-size: 12px; margin-top: 5px;">team@dragonslayers.gg</div>
+                </a>
+            </div>
+
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Send us a Message</h3>
+            <form class="contact-form" onsubmit="return handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Why are you contacting us?" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://twitch.tv" class="social-link" title="Twitch">📺</a>
+                <a href="https://instagram.com" class="social-link" title="Instagram">📸</a>
+                <a href="mailto:team@dragonslayers.gg" class="social-link" title="Email">✉️</a>
+                <a href="#" class="social-link" title="Discord">💬</a>
+            </div>
+            <p>&copy; 2024 DragonSlayers eSports Team. All rights reserved. | From Local Heroes to Esports Legends 🐉</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Thanks ${name}! Your message has been sent. We'll get back to you soon! 🐉`);
+            document.querySelector('.contact-form').reset();
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
