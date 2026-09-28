@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOIDWOLF Esports — Hunt in the Void</title>
+<meta name="description" content="VOIDWOLF Esports — профессиональная киберспортивная организация. Составы, матчи, мерч и партнёрство.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
+<style>
+/* ===== НАСТРОЙКИ БРЕНДА: меняйте цвета здесь ===== */
+:root{--bg:#07060d;--bg2:#100d1c;--fg:#ece9f7;--mut:#8f88ab;--ac:#8b5cff;--ac2:#00e5ff;--line:#221c3a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:70rem;margin:auto;padding:0 1.25rem}
+nav{position:sticky;top:0;z-index:9;background:rgba(7,6,13,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:4rem}
+.logo{font-weight:900;letter-spacing:.2em;font-size:1.15rem}
+.logo b{color:var(--ac)}
+.links{display:flex;gap:1.4rem;font-size:.9rem;color:var(--mut)}
+.links a:hover{color:var(--ac2)}
+.btn{display:inline-block;padding:.85rem 1.7rem;background:linear-gradient(90deg,var(--ac),var(--ac2));color:#050409;font-weight:800;border-radius:.4rem;letter-spacing:.05em;border:0;cursor:pointer}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--ac)}
+.btn:hover{filter:brightness(1.15)}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:4rem 1rem;background:radial-gradient(ellipse at 50% 20%,#2a1a5e 0,transparent 60%),radial-gradient(ellipse at 80% 90%,#003d4a 0,transparent 50%)}
+.hero h1{font-size:clamp(3rem,12vw,8rem);font-weight:900;letter-spacing:.08em;line-height:1}
+.hero h1 span{background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);max-width:34rem;margin:1.2rem auto 2rem;font-size:1.15rem}
+.hero .btn{margin:.3rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1rem;margin-top:3.5rem}
+.stats div{border:1px solid var(--line);background:var(--bg2);padding:1rem;border-radius:.5rem}
+.stats strong{display:block;font-size:2rem;color:var(--ac2)}
+.stats small{color:var(--mut)}
+section{padding:5rem 0}
+h2{font-size:2.2rem;margin-bottom:.4rem;letter-spacing:.05em}
+h2::after{content:"";display:block;width:3.5rem;height:4px;background:var(--ac);margin-top:.5rem}
+.sub{color:var(--mut);margin:.8rem 0 2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.2rem}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:.6rem;padding:1.3rem;transition:.2s}
+.card:hover{border-color:var(--ac);transform:translateY(-4px)}
+.tag{font-size:.7rem;letter-spacing:.15em;color:var(--ac2);font-weight:700}
+.player .ava{height:9rem;border-radius:.4rem;margin-bottom:1rem;display:grid;place-items:center;font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,var(--ac),#1a1240)}
+.player h3{font-size:1.3rem}
+.player p{color:var(--mut);font-size:.9rem}
+.match{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--bg2);border:1px solid var(--line);border-radius:.5rem;padding:1rem 1.3rem;margin-bottom:.8rem}
+.match .res{font-weight:800}
+.win{color:#3ddc97}.loss{color:#ff5c7a}
+#cd{display:flex;gap:1rem;justify-content:center;margin:1.5rem 0}
+#cd div{background:var(--bg2);border:1px solid var(--ac);border-radius:.5rem;min-width:5rem;padding:.7rem}
+#cd b{display:block;font-size:1.9rem}
+#cd small{color:var(--mut)}
+.ach li{list-style:none;padding:.9rem 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem}
+.ach span{color:var(--ac2);font-weight:700;white-space:nowrap}
+.merch .img{height:11rem;border-radius:.4rem;display:grid;place-items:center;font-size:4rem;background:var(--line);margin-bottom:1rem}
+.price{font-weight:800;color:var(--ac2);font-size:1.2rem;margin:.4rem 0 .8rem}
+.spons{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;color:var(--mut);font-weight:900;letter-spacing:.2em;font-size:1.2rem;opacity:.75}
+.cta{text-align:center;background:linear-gradient(135deg,#1c1040,#06303a);border:1px solid var(--line);border-radius:.8rem;padding:3rem 1.5rem}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--mut);font-size:.85rem;text-align:center}
+footer a{margin:0 .6rem;color:var(--fg)}
+@media(max-width:700px){.links{display:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#top" class="logo">🐺 VOID<b>WOLF</b></a>
+  <div class="links"><a href="#team">Состав</a><a href="#matches">Матчи</a><a href="#achievements">Достижения</a><a href="#shop">Мерч</a><a href="#partners">Партнёрам</a></div>
+  <a href="#join" class="btn" style="padding:.5rem 1.1rem;font-size:.85rem">Вступить</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <p class="tag">PRO ESPORTS ORGANIZATION · EST. 2021</p>
+  <h1>HUNT IN<br><span>THE VOID</span></h1>
+  <p>Мы не играем — мы охотимся. Чемпионский состав, миллионная аудитория и фанаты по всему миру.</p>
+  <a href="#matches" class="btn">Ближайший матч</a>
+  <a href="#shop" class="btn ghost">Магазин мерча</a>
+  <div class="stats">
+    <div><strong>12</strong><small>трофеев</small></div>
+    <div><strong>2.4M</strong><small>подписчиков</small></div>
+    <div><strong>$1.8M</strong><small>призовых</small></div>
+    <div><strong>4</strong><small>дисциплины</small></div>
+  </div>
+</div></header>
+
+<section id="team"><div class="wrap">
+  <h2>ОСНОВНОЙ СОСТАВ</h2>
+  <p class="sub">Flagship-ростер по тактическому шутеру.</p>
+  <div class="grid">
+    <div class="card player"><div class="ava">V</div><span class="tag">IGL · КАПИТАН</span><h3>Vexor</h3><p>Стратег команды. 8 лет на про-сцене.</p></div>
+    <div class="card player"><div class="ava">N</div><span class="tag">ENTRY FRAGGER</span><h3>Nyxx</h3><p>Открывает раунды быстрее, чем вы моргнёте.</p></div>
+    <div class="card player"><div class="ava">K</div><span class="tag">AWPER</span><h3>Kaizen</h3><p>Один выстрел — один фраг. MVP сезона.</p></div>
+    <div class="card player"><div class="ava">R</div><span class="tag">SUPPORT</span><h3>Rhyme</h3><p>Утилити-мастер и клатч-машина.</p></div>
+    <div class="card player"><div class="ava">Z</div><span class="tag">LURKER</span><h3>Zephyr</h3><p>Появляется там, где его не ждут.</p></div>
+  </div>
+</div></section>
+
+<section id="matches" style="background:var(--bg2)"><div class="wrap">
+  <h2>МАТЧИ</h2>
+  <p class="sub" style="text-align:center">До следующего матча (VOIDWOLF vs. IRONVEIL):</p>
+  <div id="cd"><div><b id="d">--</b><small>дней</small></div><div><b id="h">--</b><small>часов</small></div><div><b id="m">--</b><small>минут</small></div><div><b id="s">--</b><small>секунд</small></div></div>
+  <div style="margin-top:2rem">
+    <div class="match"><span>Apex Masters 2026 · Финал</span><span>VOIDWOLF vs NEONCROWN</span><span class="res win">2 : 0 W</span></div>
+    <div class="match"><span>Apex Masters 2026 · Полуфинал</span><span>VOIDWOLF vs STORMHIVE</span><span class="res win">2 : 1 W</span></div>
+    <div class="match"><span>Summer Clash · Группа</span><span>VOIDWOLF vs IRONVEIL</span><span class="res loss">0 : 2 L</span></div>
+  </div>
+</div></section>
+
+<section id="achievements"><div class="wrap">
+  <h2>ДОСТИЖЕНИЯ</h2>
+  <ul class="ach" style="margin-top:2rem">
+    <li>Apex Masters 2026 <span>🥇 1 место</span></li>
+    <li>World Void Cup 2025 <span>🥇 1 место</span></li>
+    <li>Nordic Showdown 2025 <span>🥈 2 место</span></li>
+    <li>Global Finals 2024 <span>🥉 3 место</span></li>
+  </ul>
+</div></section>
+
+<section id="shop" style="background:var(--bg2)"><div class="wrap">
+  <h2>МЕРЧ</h2>
+  <p class="sub">Официальная экипировка команды. Ограниченные дропы.</p>
+  <div class="grid merch">
+    <div class="card"><div class="img">👕</div><h3>Джерси Pro 2026</h3><div class="price">€49</div><a class="btn" href="mailto:shop@voidwolf.gg?subject=Заказ: Джерси">Заказать</a></div>
+    <div class="card"><div class="img">🧥</div><h3>Худи Void Black</h3><div class="price">€69</div><a class="btn" href="mailto:shop@voidwolf.gg?subject=Заказ: Худи">Заказать</a></div>
+    <div class="card"><div class="img">🖱️</div><h3>Коврик XL</h3><div class="price">€29</div><a class="btn" href="mailto:shop@voidwolf.gg?subject=Заказ: Коврик">Заказать</a></div>
+    <div class="card"><div class="img">🧢</div><h3>Кепка Wolf</h3><div class="price">€25</div><a class="btn" href="mailto:shop@voidwolf.gg?subject=Заказ: Кепка">Заказать</a></div>
+  </div>
+</div></section>
+
+<section id="partners"><div class="wrap">
+  <h2>ПАРТНЁРЫ</h2>
+  <p class="sub">Нам доверяют лидеры индустрии.</p>
+  <div class="spons"><span>NEXAGEAR</span><span>VOLTX</span><span>ARCLIGHT</span><span>QUANTABYTE</span><span>ZENITH ENERGY</span></div>
+  <p style="text-align:center;margin-top:2rem"><a class="btn ghost" href="mailto:partners@voidwolf.gg?subject=Партнёрство">Стать спонсором</a></p>
+</div></section>
+
+<section id="join"><div class="wrap"><div class="cta">
+  <h2 style="display:inline-block">ХОЧЕШЬ В КОМАНДУ?</h2>
+  <p class="sub">Мы ищем таланты в академию. Пришли нам свой профиль и клипы.</p>
+  <a class="btn" href="mailto:join@voidwolf.gg?subject=Заявка в академию">Подать заявку</a>
+</div></div></section>
+
+<footer><div class="wrap">
+  <p><a href="#">Twitter/X</a><a href="#">Twitch</a><a href="#">YouTube</a><a href="#">Discord</a><a href="#">Instagram</a></p>
+  <p style="margin-top:.8rem">© 2026 VOIDWOLF Esports. Все права защищены.</p>
+</div></footer>
+
+<script>
+// Дата следующего матча — поменяйте на свою
+const target=new Date("2026-11-14T18:00:00+01:00").getTime();
+const $=id=>document.getElementById(id);
+function tick(){
+  let t=Math.max(0,target-Date.now());
+  $("d").textContent=Math.floor(t/864e5);
+  $("h").textContent=String(Math.floor(t%864e5/36e5)).padStart(2,"0");
+  $("m").textContent=String(Math.floor(t%36e5/6e4)).padStart(2,"0");
+  $("s").textContent=String(Math.floor(t%6e4/1e3)).padStart(2,"0");
+}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
